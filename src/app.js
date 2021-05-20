@@ -23,4 +23,5 @@ client.on('message', (_, body) => {
   fetch(host, { method: 'POST', body })
     .then(res => res.json())
     .then(json => console.log(json))
+    .catch(e => console.error(e))
 })
