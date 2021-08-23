@@ -4,5 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    env_file:
-      - .env
+    environment:
+      MODULE_NAME: mqttingress
+      EGRESS_API_HOST: https://hookb.in/XkYDZ2dzM8SDYMQQYo0K
+      MQTT_BROKER: mqtt://18.193.133.162/
+      PROTOCOL: mqtt
+      TOPIC: weeve/airquality
+      PORT: 1883
+      QOS: 1
