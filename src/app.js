@@ -21,7 +21,6 @@ client.on('error', err => {
 client.on('message', (_, body) => {
   console.log(body.toString())
   fetch(host, { method: 'POST', body })
-    .then(res => res.json())
-    .then(json => console.log(json))
+    .then(res => console.log(res))
     .catch(e => console.error(e))
 })
