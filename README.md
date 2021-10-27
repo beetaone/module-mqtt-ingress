@@ -51,7 +51,7 @@ Other features required for establishing the inter-container communication betwe
 
 | Environment Variables | type   | Description                            |
 | --------------------- | ------ | -------------------------------------- |
-| EGRESS_API_HOST       | string | HTTP ReST endpoint for the next module |
+| EGRESS_URL       | string | HTTP ReST endpoint for the next module |
 | MODULE_NAME           | string | Name of the module                     |
 
 

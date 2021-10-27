@@ -6,9 +6,9 @@ services:
       dockerfile: Dockerfile
     environment:
       MODULE_NAME: mqttingress
-      EGRESS_API_HOST: https://hookb.in/XkYDZ2dzM8SDYMQQYo0K
-      MQTT_BROKER: mqtt://18.193.133.162/
+      EGRESS_URL: https://hookb.in/7Zd6n0JXV0TWNgjjNa3P
+      MQTT_BROKER: mqtt://test.mosquitto.org
       PROTOCOL: mqtt
-      TOPIC: weeve/airquality
+      TOPIC: weeve/hackathon/air-quality-monitor
       PORT: 1883
       QOS: 1
