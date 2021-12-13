@@ -1,0 +1,64 @@
+version: 1.0.0
+name: MQTT Ingress
+description: Data ingress for MQTT
+icon: https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_mqtt_input.png
+type: input
+tags:
+  - MQTT Ingress
+  - input
+  - Data
+  - ingress
+  - MQTT
+categories:
+  - id: category
+    name: Ingress
+image:
+  name: weevenetwork/weeve-ingress-mqtt
+  tag: latest
+environments:
+  - key: MQTT_BROKER
+    description: Broker to subscribe from
+    value: ''
+    default: mqtt://test.mosquitto.org
+    type: string
+    name: MQTT Broker
+  - key: PORT
+    description: Port on which the broker is listening
+    value: ''
+    default: 1883
+    type: integer
+    name: Port
+  - key: PROTOCOL
+    description: Protocol used for connection
+    value: ''
+    default: mqtt
+    type: enum
+    options:
+      - mqtt
+      - ws
+    name: Protocol
+  - key: TOPIC
+    description: Topic to subscribe
+    value: ''
+    default: weeve/factory
+    type: string
+    name: Topic
+  - key: QOS
+    description: Quality of service for the connection
+    value: ''
+    default: '0'
+    type: enum
+    options:
+      - 0
+      - 1
+      - 2
+    name: QOS
+commands: []
+document:
+  ports: []
+  volumes: []
+  restart_policy:
+    condition: on-failure
+    delay: 10s
+    max_attempts: 3
+    window: 120s
