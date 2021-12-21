@@ -3,8 +3,8 @@
 |                |                                 |
 | -------------- | ------------------------------- |
 | Name           | MQTT Ingress                    |
-| Version        | v0.0.1                          |
-| Dockerhub Link | weevenetwork/weeve-mqtt-ingress |
+| Version        | v0.0.2                          |
+| Dockerhub Link | [weevenetwork/weeve-mqtt-ingress](https://hub.docker.com/r/weevenetwork/weeve-ingress-mqtt) |
 | Authors        | Sanyam Arya                     |
 
 
