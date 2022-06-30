@@ -1,6 +1,6 @@
 const mqtt = require('mqtt')
 const { broker, port, topic, protocol } = require('./config/broker')
-const { host } = require('./config/nextContainer.js')
+const { urls } = require('./config/nextContainer.js')
 const { module_name, module_type } = require('./config/thisContainer.js')
 const fetch = require('node-fetch')
 
@@ -21,7 +21,12 @@ client.on('error', err => {
 
 client.on('message', (_, body) => {
   console.log(body.toString())
-  fetch(host, { method: 'POST', body })
+
+  // fan-out
+  console.log(urls)
+  urls.forEach(url => {
+    fetch(url, { method: 'POST', body })
     .then(res => console.log(res))
     .catch(e => console.error(e))
+  })
 })
