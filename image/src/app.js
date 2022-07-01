@@ -25,7 +25,7 @@ client.on('message', (_, body) => {
   // fan-out
   console.log(urls)
   urls.forEach(url => {
-    fetch(url, { method: 'POST', body })
+    fetch(url, { method: 'POST', headers: {'Content-Type': 'application/json'}, body })
     .then(res => console.log(res))
     .catch(e => console.error(e))
   })
