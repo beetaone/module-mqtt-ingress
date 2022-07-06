@@ -1,64 +1,64 @@
-version: 1.0.0
-name: MQTT Ingress
-description: Data ingress for MQTT
-icon: https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_mqtt_input.png
-type: input
-tags:
-  - MQTT Ingress
-  - input
-  - Data
-  - ingress
-  - MQTT
-categories:
-  - id: category
-    name: Ingress
+displayName: 'MQTT Ingress'       # Display name for the module that will be displayed in the UI.
+moduleName: 'mqtt-ingress'        # Module name that will be used to reference the module, and uniquely identify the module and their versions.
+description: 'Data ingress for MQTT.'       # Module description that will be displayed in the UI.
+versionName: '1.0.0'                    # Module version name that will be used to reference the module version, and uniquely identify the module version with a common name.
+isPublic: true                          # Boolean value that indicates if the module is Public or Private.
+categories:                             # Array of category that will be used to group the module in the UI.
+  - 'Ingress'
+type: 'Input'      # Module type (Input, Processing, Output) that will be used to group the module in the UI.
 image:
-  name: weevenetwork/mqtt-ingress
-  tag: latest
-environments:
-  - key: MQTT_BROKER
-    description: Broker to subscribe from
-    value: ''
-    default: mqtt://test.mosquitto.org
-    type: string
-    name: MQTT Broker
-  - key: PORT
-    description: Port on which the broker is listening
-    value: ''
-    default: 1883
-    type: integer
-    name: Port
-  - key: PROTOCOL
-    description: Protocol used for connection
-    value: ''
-    default: mqtt
-    type: enum
+  name: 'weevenetwork/mqtt-ingress'     # Image name from the docker registry.
+  tag: 'latest'                               # Image tag from the docker registry.
+  homepage: 'https://hub.docker.com/r/weevenetwork/mqtt-ingress'      # Image homepage from the docker registry.
+repository: 'https://github.com/weeve-modules/mqtt-ingress'     # Repository URL to source code.
+envs:                                   # Array of environment variables that will be used to configure the module. Also used to show related fields on the UI.
+  - name: MQTT Broker                   # name of the field to be displayed on the UI.
+    key: MQTT_BROKER                # key to set in the environment variables.
+    description: Broker to subscribe from     # Description/helper text for the field.
+    value: 'mqtt://test.mosquitto.org'                         # Value to be set in the environment variables.
+    type: 'text'                    # Type of the field. Possible values are: ['text', 'select', 'boolean', 'date', 'time', 'dateTime-local', 'number', 'multiple', 'CSV', 'file']
+    options: []                         # Options for the field if it is a select or multiple select. An array of string options
+    dependencies: []                     # List of dependencies for the field. This field is only displayed if all the dependencies are met. If
+  - name: Port
+    key: PORT
+    description: Port on which the broker is listening.
+    value: 1883
+    type: 'number'
+    options: []
+    dependencies: []
+  - name: Protocol
+    key: PROTOCOL
+    description: Protocol used for connection.
+    value: 'mqtt'
+    type: 'select'
     options:
-      - mqtt
-      - ws
-    name: Protocol
-  - key: TOPIC
-    description: Topic to subscribe
-    value: ''
-    default: weeve/factory
-    type: string
-    name: Topic
-  - key: QOS
-    description: Quality of service for the connection
-    value: ''
-    default: '0'
-    type: enum
+      - 'mqtt'
+      - 'ws'
+    dependencies: []
+  - name: Topic
+    key: TOPIC
+    description: Topic to subscribe.
+    value: 'weeve/factory'
+    type: 'text'
+    options: []
+    dependencies: []
+  - name: QOS
+    key: QOS
+    description: Quality of service for the connection.
+    value: 0
+    type: 'select'
     options:
       - 0
       - 1
       - 2
-    name: QOS
-commands: []
-document:
-  ports: []
-  volumes: []
-  restart_policy:
-    condition: on-failure
-    delay: 10s
-    max_attempts: 3
-    window: 120s
+    dependencies: []
+ports: []
+mounts: []
+tags:                                   # Array of tags.
+  - NodeJs
+  - MQTT Ingress
+  - Input
+  - Data
+  - ingress
+  - MQTT
+icon: 'https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_mqtt_input.png'    # Icon URL that will be displayed in the UI.
