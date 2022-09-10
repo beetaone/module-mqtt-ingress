@@ -45,18 +45,22 @@ envs:                                   # Array of environment variables that wi
   - name: QOS
     key: QOS
     description: Quality of service for the connection.
-    value: 0
+    value: '0'
     type: 'select'
     options:
-      - 0
-      - 1
-      - 2
+      - '0'
+      - '1'
+      - '2'
     dependencies: []
 ports: []
+envPorts: []
 mounts: []
+envMounts: []
+devices: []
+envDevices: []
 tags:                                   # Array of tags.
   - NodeJs
-  - MQTT Ingress
+  - MQTT-Ingress
   - Input
   - Data
   - ingress
