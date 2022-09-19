@@ -1,16 +1,48 @@
 const mqtt = require('mqtt')
 const { broker, port, topic, protocol } = require('./config/broker')
 const { urls } = require('./config/nextContainer.js')
-const { module_name, module_type } = require('./config/thisContainer.js')
 const fetch = require('node-fetch')
+const { URL } = require('url')
 
-const client = mqtt.connect(broker, {
+var brokerUrl = broker
+
+try {
+  brokerUrl = new URL(brokerUrl)
+
+  const supportedProtocols = ['mqtt:', 'mqtts:']
+
+  if(supportedProtocols.includes(brokerUrl.protocol)) {
+    brokerUrl = brokerUrl.href
+  } else {
+    console.error(`Unsupported url protocol (${brokerUrl.protocol}). Please provide mqtt:// or mqtts:// urls.`)
+    // kill the program
+    process.exit(1);
+  }
+
+} catch (e) {
+  if (e.code === 'ERR_INVALID_URL') {
+    if (!brokerUrl.includes("://")) {
+      // url address missing protocol so compose it basing on module envs
+      brokerUrl = protocol + '://' + broker
+    } else {
+      console.error(e)
+      // kill the program
+      process.exit(1);
+    }
+  } else {
+    console.error(e)
+    // kill the program
+    process.exit(1);
+  }
+}
+
+const client = mqtt.connect(brokerUrl, {
   port,
   protocol,
 })
 
 client.on('connect', () => {
-  console.info('Connected to broker')
+  console.info(`Connected to broker ${brokerUrl}`)
   client.subscribe(topic, err => err && console.error(err))
 })
 
