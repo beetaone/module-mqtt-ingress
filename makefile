@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 MODULE=weevenetwork/mqtt-ingress
-VERSION_NAME=v1.0.0
+VERSION_NAME=v1.0.1
 
 create_image:
 	docker build -t ${MODULE}:${VERSION_NAME} . -f image/Dockerfile
