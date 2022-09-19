@@ -33,7 +33,7 @@ envs:                                   # Array of environment variables that wi
     type: 'select'
     options:
       - 'mqtt'
-      - 'ws'
+      - 'mqtts'
     dependencies: []
   - name: Topic
     key: TOPIC
