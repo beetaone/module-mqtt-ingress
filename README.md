@@ -40,7 +40,7 @@ The following module configurations can be provided in a data service designer s
 | Name                | Environment Variables | Type    | Description                |
 | ------------------- | --------------------- | ------- | -------------------------- |
 | MQTT Broker Address | MQTT_BROKER           | string  | eg: mqtt://test.mosquitto.org (please notice that the protocol used in the module must be explicitely stated. Supported protocols: `mqtt://` or `mqtts://`)  |
-| MQTT Protocol       | PROTOCOL              | string  | `mqtt | mqtts`                |
+| MQTT Protocol       | PROTOCOL              | string  | `mqtt` / `mqtts`                |
 | Connection Port     | PORT                  | integer | Port number for tbe broker |
 | Topic               | TOPIC                 | string  | Topic to subscribe         |
 | Quality of Service  | QOS                   | integer | Quality of Service         |
