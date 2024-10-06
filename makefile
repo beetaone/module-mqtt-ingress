@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-MODULE=weevenetwork/mqtt-ingress
+MODULE=beetaone/mqtt-ingress
 VERSION_NAME=v1.0.1
 
 create_image:
@@ -25,4 +25,4 @@ install_local:
 
 run_local:
 	npm run start
-.phony: run_local
+.phony: run_localocal

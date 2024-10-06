@@ -4,7 +4,7 @@
 | -------------- | ------------------------------- |
 | Name           | MQTT Ingress                    |
 | Version        | v1.0.1                          |
-| Dockerhub Link | [weevenetwork/mqtt-ingress](https://hub.docker.com/r/weevenetwork/mqtt-ingress) |
+| Dockerhub Link | [beetaone/mqtt-ingress](https://hub.docker.com/r/beetaone/mqtt-ingress) |
 | Authors        | Sanyam Arya                     |
 
 
@@ -14,7 +14,7 @@
   - [Features](#features)
   - [Environment Variables](#environment-variables)
     - [Module Specific](#module-specific)
-    - [Set by the weeve Agent on the edge-node](#set-by-the-weeve-agent-on-the-edge-node)
+    - [Set by the beetaone Agent on the edge-node](#set-by-the-beetaone-agent-on-the-edge-node)
   - [Dependencies](#dependencies)
 
 
@@ -34,7 +34,7 @@ It subscribe to a MQTT Broker on a topic.
 
 ### Module Specific
 
-The following module configurations can be provided in a data service designer section on weeve platform:
+The following module configurations can be provided in a data service designer section on beetaone platform:
 
 
 | Name                | Environment Variables | Type    | Description                |
@@ -45,9 +45,9 @@ The following module configurations can be provided in a data service designer s
 | Topic               | TOPIC                 | string  | Topic to subscribe         |
 | Quality of Service  | QOS                   | integer | Quality of Service         |
 
-Other features required for establishing the inter-container communication between modules in a data service are set by weeve agent.
+Other features required for establishing the inter-container communication between modules in a data service are set by beetaone agent.
 
-### Set by the weeve Agent on the edge-node
+### Set by the beetaone Agent on the edge-node
 
 | Environment Variables | type   | Description                            |
 | --------------------- | ------ | -------------------------------------- |
